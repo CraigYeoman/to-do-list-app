@@ -18,5 +18,8 @@
   "homepage": "https://github.com/CraigYeoman/to-do-list-app#readme",
   "devDependencies": {
     "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "date-fns": "^2.28.0"
   }
 }
