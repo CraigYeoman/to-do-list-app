@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo">To-Do List App</div>
-    </div>
     <div class="container">
         <div class="side-bar">
+            <div class="logo">Logo</div>
             <div class="side-bar-title">Home</div>
             <div class="side-bar-title">Today</div>
             <div class="side-bar-title">This Week</div>
@@ -20,10 +19,32 @@
             <div class="side-bar-title">Projects</div>
         </div>
         <div class="main-content">
-            <div class="project"></div>
-            <div class="priority">Priority</div>
-            <div class="due-date">Due Date</div>
+            <div class="header">
+                <input type="checkbox" name="" id="" checked>
+                <div class="task">Task</div>
+                <div class="project">Project</div>
+                <div class="priority">Priority</div>
+                <div class="due-date">Due Date</div>
+            </div>
+            <div class="content" id="content">
+                <div class="tasks">
+                    <input type="checkbox" name="" id="">
+                    <div class="title">Example</div>
+                    <div class="project">Project</div>
+                    <div class="priority">High</div>
+                    <div class="due-date">6/1/2022</div>
+                </div>
+            </div>
         </div>
     </div>
+    <template id="tasks-template">
+        <div class="tasks">
+            <input type="checkbox" check-box name="" id="">
+            <div class="title" task-title></div>
+            <div class="project" task-project></div>
+            <div class="priority" task-priority></div>
+            <div class="due-date" task-due-date></div>
+        </div>
+    </template>
 </body>
 </html>
