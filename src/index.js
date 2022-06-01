@@ -15,8 +15,8 @@ let tasks = [{
 const containerTasks = document.getElementById('content');
 const taskTemplate = document.getElementById('tasks-template');
 
-const task = (title, project, priority, dueDate, completion) => {
-    return {title, project, priority, dueDate, completion};
+const task = (title, project, priority, dueDate, completion, id) => {
+    return {title, project, priority, dueDate, completion, id};
 }
 
 function clearElement() {
@@ -43,12 +43,23 @@ function render() {
         const checkBox = taskContainer.querySelector('[check-box]');
         checkBox.value = task.completion;
         containerTasks.appendChild(taskContainer);
+        task.id = tasks.findIndex(i => i.title === task.title);
+        //deleteButton.id = task.id
     });
+}
+
+function addTask() {
+    let newTask = new task(taskTitle, taskProject, taskPriority, taskDueDate, taskCompletion);
+    tasks.push(newTask);
+    // Remove modal
+    render();
 }
 
 const example = task('Example', 'Personal', 'High', '10/23/22', 'incomplete', 'This is the example', 'Make sure is is an example');
 
 console.log('hellod');
 console.log(example.title);
+console.log(tasks);
+
 
 render();
