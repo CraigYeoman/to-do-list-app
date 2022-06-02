@@ -12,6 +12,8 @@ let tasks = [{
     completion: false,
 }];
 
+
+const addTaskButton = document.getElementById('add-task-button')
 const containerTasks = document.getElementById('content');
 const taskTemplate = document.getElementById('tasks-template');
 
@@ -72,5 +74,6 @@ console.log('hellod');
 console.log(example.title);
 console.log(tasks);
 
+addTaskButton.addEventListener('click', addTask)
 
 render();

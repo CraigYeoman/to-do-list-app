@@ -27,10 +27,10 @@ body {
 }
 
 .side-bar-title {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
     color: #E2E8F0;
-    display: grid;
+    display: flex;
     margin-top: 15px;
 }
 
