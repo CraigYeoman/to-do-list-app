@@ -48,8 +48,19 @@ function render() {
     });
 }
 
+function cache() {
+    
+}
+
 function addTask() {
-    let newTask = new task(taskTitle, taskProject, taskPriority, taskDueDate, taskCompletion);
+    const addTaskModal = document.getElementById('modal');
+    const backGroundModal = document.getElementById('background-modal');
+    const taskTitle = document.querySelector('#title');
+    const taskProject = document.querySelector('#project');
+    const taskPriority = document.querySelector('#priority');
+    const taskDueDate = document.querySelector('#due-date');
+    let taskCompletion = 'incomplete'
+    let newTask = task(taskTitle.value, taskProject.value, taskPriority.value, taskDueDate.value, taskCompletion);
     tasks.push(newTask);
     // Remove modal
     render();
