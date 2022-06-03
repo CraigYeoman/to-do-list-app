@@ -40,7 +40,7 @@ body {
 
 .header {
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr 3fr 3fr;
+    grid-template-columns: 1fr 3fr 3fr 3fr 3fr 1fr;
     justify-items: center;
     font-size: 24px;
     font-weight: 500;
@@ -55,7 +55,7 @@ body {
 
 .tasks {
     display: grid;
-    grid-template-columns: 1fr 3fr 3fr 3fr 3fr;
+    grid-template-columns: 1fr 3fr 3fr 3fr 3fr 1fr;
     grid-template-rows: repeat(1,30px);
     justify-items: center; 
     align-items: center; 
@@ -77,5 +77,27 @@ body {
     color: #F9FAF8;
     font-weight: bold;
     padding: 10px;
+    transform: translate(-50%, -50%) scale(0);
+}
 
+.modal.activate {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn {
+    border: 2px solid #334155;
+    background-color: inherit;
+    font-size: 22px;
+    font-weight: 600;
+    color: #E2E8F0;
+    display: flex;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    color: white;
+    font-weight: 680;
+    border: 2px solid #E2E8F0;
+    border-radius: 5px;
+    cursor: pointer;
 }

@@ -14,8 +14,11 @@ let tasks = [{
 
 
 const addTaskButton = document.getElementById('add-task-button')
+const addTaskButtonModal = document.getElementById('add-task-button-modal')
 const containerTasks = document.getElementById('content');
 const taskTemplate = document.getElementById('tasks-template');
+const modal = document.getElementById('modal');
+
 
 const task = (title, project, priority, dueDate, completion, id) => {
     return {title, project, priority, dueDate, completion, id};
@@ -46,12 +49,18 @@ function render() {
         checkBox.value = task.completion;
         containerTasks.appendChild(taskContainer);
         task.id = tasks.findIndex(i => i.title === task.title);
-        //deleteButton.id = task.id
+        const deleteButton = taskContainer.querySelector('[delete-button]');
+        deleteButton.id = task.id;
     });
 }
 
 function cache() {
     
+}
+
+function openModal() {
+    modal.classList.add('activate');
+    console.log('meow');
 }
 
 function addTask() {
@@ -62,18 +71,19 @@ function addTask() {
     const taskPriority = document.querySelector('#priority');
     const taskDueDate = document.querySelector('#due-date');
     let taskCompletion = 'incomplete'
-    let newTask = task(taskTitle.value, taskProject.value, taskPriority.value, taskDueDate.value, taskCompletion);
+    let newTask = task(taskTitle.value, taskProject.value, taskPriority.value, taskDueDate.value, taskCompletion, id);
     tasks.push(newTask);
-    // Remove modal
+    modal.classList.remove('activate');
     render();
 }
 
-const example = task('Example', 'Personal', 'High', '10/23/22', 'incomplete', 'This is the example', 'Make sure is is an example');
+
 
 console.log('hellod');
-console.log(example.title);
 console.log(tasks);
 
+addTaskButtonModal.addEventListener('click', openModal)
 addTaskButton.addEventListener('click', addTask)
+
 
 render();

@@ -12,15 +12,15 @@
     <div class="container">
         <div class="side-bar">
             <div class="logo">Logo</div>
-            <div class="side-bar-title">
+            <button class="btn" id="add-task-button-modal">
                 Add Task
                 <img src="./svg/plus-circle.svg" alt="" srcset="">
-            </div>
-            <div class="side-bar-title">Home</div>
-            <div class="side-bar-title">Today</div>
-            <div class="side-bar-title">This Week</div>
-            <div class="side-bar-title">This Month</div>
-            <div class="side-bar-title">Projects</div>
+            </button>
+            <button class="btn">Home</button>
+            <button class="btn">Today</button>
+            <button class="btn">This Week</button>
+            <button class="btn">This Month</button>
+            <button class="btn">Projects</button>
         </div>
         <div class="main-content">
             <div class="header">
@@ -29,6 +29,7 @@
                 <div class="project">Project</div>
                 <div class="priority">Priority</div>
                 <div class="due-date">Due Date</div>
+                <img src="./svg/delete.svg">
             </div>
             <div class="content" id="content">
                 <div class="tasks">
@@ -37,11 +38,12 @@
                     <div class="project">Project</div>
                     <div class="priority">High</div>
                     <div class="due-date">6/1/2022</div>
+                    <img src="./svg/delete.svg">
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal" id="'modal">
+    <div class="modal" id="modal">
         <div class="input">
             <label for="title">Task Title</label>
             <input type="text" name="" id="title">
@@ -68,6 +70,9 @@
             <div class="project" task-project></div>
             <div class="priority" task-priority></div>
             <div class="due-date" task-due-date></div>
+            <button class="delete" delete-button>
+                <img src=".svg/delete.svg" >
+            </button>
         </div>
     </template>
 </body>
