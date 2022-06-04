@@ -47,10 +47,10 @@ function render() {
         taskDueDate.textContent = task.dueDate;
         const checkBox = taskContainer.querySelector('[check-box]');
         checkBox.value = task.completion;
-        containerTasks.appendChild(taskContainer);
         task.id = tasks.findIndex(i => i.title === task.title);
         const deleteButton = taskContainer.querySelector('[delete-button]');
         deleteButton.id = task.id;
+        containerTasks.appendChild(taskContainer);
     });
 }
 
@@ -71,19 +71,30 @@ function addTask() {
     const taskPriority = document.querySelector('#priority');
     const taskDueDate = document.querySelector('#due-date');
     let taskCompletion = 'incomplete'
-    let newTask = task(taskTitle.value, taskProject.value, taskPriority.value, taskDueDate.value, taskCompletion, id);
+    let newTask = task(taskTitle.value, taskProject.value, taskPriority.value, taskDueDate.value, taskCompletion);
     tasks.push(newTask);
     modal.classList.remove('activate');
     render();
 }
 
-
+function deleteTask(e) {
+    if(e.target.tagName.toLowerCase() === 'img') {
+    console.log(e.target.id);
+    tasks.splice(e.target.id, 1);
+    render();
+    }
+}
 
 console.log('hellod');
 console.log(tasks);
 
-addTaskButtonModal.addEventListener('click', openModal)
-addTaskButton.addEventListener('click', addTask)
-
-
 render();
+
+const deleteButton = document.querySelectorAll('[delete-button]');
+
+addTaskButtonModal.addEventListener('click', openModal)
+addTaskButton.addEventListener('click', addTask);
+containerTasks.addEventListener('click', deleteTask);
+
+
+

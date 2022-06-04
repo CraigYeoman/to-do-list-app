@@ -31,14 +31,16 @@
                 <div class="due-date">Due Date</div>
                 <img src="./svg/delete.svg">
             </div>
-            <div class="content" id="content">
+            <div class="content" id="content" data-content-container>
                 <div class="tasks">
                     <input type="checkbox" name="" id="">
                     <div class="title">Example</div>
                     <div class="project">Project</div>
                     <div class="priority">High</div>
                     <div class="due-date">6/1/2022</div>
-                    <img src="./svg/delete.svg">
+                    <button class="delete" delete-button>
+                        <img src="./svg/delete.svg"> 
+                    </button>
                 </div>
             </div>
         </div>
@@ -71,7 +73,7 @@
             <div class="priority" task-priority></div>
             <div class="due-date" task-due-date></div>
             <button class="delete" delete-button>
-                <img src=".svg/delete.svg" >
+                <img src="./svg/delete.svg">
             </button>
         </div>
     </template>
