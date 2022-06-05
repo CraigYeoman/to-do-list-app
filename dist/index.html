@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer src="../src/index.js"></script>
+    <script defer src="main.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +20,8 @@
             <button class="btn">Today</button>
             <button class="btn">This Week</button>
             <button class="btn">This Month</button>
-            <button class="btn">Projects</button>
+            <button class="btn" id="">Projects</button>
+            <div class="project-list" id="project-list"></div>
         </div>
         <div class="main-content">
             <div class="header">
@@ -38,7 +39,7 @@
                     <div class="project">Project</div>
                     <div class="priority">High</div>
                     <div class="due-date">6/1/2022</div>
-                    <button class="delete" delete-button>
+                    <button class="delete">
                         <img src="./svg/delete.svg"> 
                     </button>
                 </div>
@@ -73,7 +74,7 @@
             <div class="priority" task-priority></div>
             <div class="due-date" task-due-date></div>
             <button class="delete" delete-button>
-                <img src="./svg/delete.svg">
+                <img src="./svg/delete.svg" delete-img>
             </button>
         </div>
     </template>
