@@ -1,4 +1,4 @@
-import { tasks, deleteTask, addTask } from './logic';
+import { tasks, deleteTask, addTask, projectList } from './logic';
 
 
 const containerTasks = document.getElementById('content');
@@ -6,6 +6,8 @@ const taskTemplate = document.getElementById('tasks-template');
 const modal = document.getElementById('modal');
 const addTaskButton = document.getElementById('add-task-button')
 const addTaskButtonModal = document.getElementById('add-task-button-modal')
+const projectsButton = document.getElementById('project-button')
+
 
 function init() {
     addTaskButtonModal.addEventListener('click', openModal)
@@ -16,8 +18,9 @@ function init() {
     render();
 };
 
-function render() {
+export function render() {
     clearElement();
+    projectPrint();
     tasks.forEach(task => {
         const taskContainer = document.importNode(taskTemplate.content, true);
         const taskTitle = taskContainer.querySelector('[task-title]');
@@ -33,12 +36,12 @@ function render() {
         task.id = tasks.findIndex(i => i.title === task.title);
         const deleteButton = taskContainer.querySelector('[delete-button]');
         deleteButton.id = task.id;
-        deleteButton.addEventListener('click', (e) => {
-            console.log(e);
-            deleteTask.bind(e);
+        deleteButton.addEventListener('click', (event) => {
+            deleteTask(event);
             render();
-        }
-        , false);
+        }, false);
+        const deleteButtonImg = taskContainer.querySelector('[delete-img]');
+        deleteButtonImg.id = task.id;
         containerTasks.appendChild(taskContainer);
     });
 }
@@ -51,6 +54,15 @@ function clearElement() {
     while (containerTasks.hasChildNodes()) {
         containerTasks.removeChild(containerTasks.firstChild)
     }
+}
+
+function projectPrint() {
+    let projects = projectList();
+    projects.forEach((project) => {
+        const projectDiv = document.createElement('div');
+        projectDiv.textContent = project;
+        projectsButton.appendChild(projectDiv);
+    })
 }
 
 export default init;

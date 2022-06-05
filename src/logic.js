@@ -29,14 +29,24 @@ function addTask() {
     modal.classList.remove('activate');
 }
 
-function deleteTask() {
-    console.log(this.id);
-    tasks.splice(this.id, 1);
-    console.log(tasks);
+function deleteTask(event) {
+    tasks.splice(event.target.id, 1);
+}
+
+function projectList() {
+    const projects = []
+    for (let i = tasks.length-1; i >= 0; i--) {
+        if (projects.includes(tasks[i].project)) {
+            return
+        } else projects.push(tasks[i].project)
+    }
+    console.log(projects);
+    return projects;
 }
 
 export {
     addTask,
     deleteTask,
-    tasks
+    tasks,
+    projectList
 }
