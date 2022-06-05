@@ -34,10 +34,10 @@ function deleteTask(event) {
 }
 
 function projectList() {
-    const projects = []
+    let projects = []
     for (let i = tasks.length-1; i >= 0; i--) {
         if (projects.includes(tasks[i].project)) {
-            return
+          ;  
         } else projects.push(tasks[i].project)
     }
     console.log(projects);

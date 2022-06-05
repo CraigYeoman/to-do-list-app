@@ -113,3 +113,21 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.btn.project {
+    font-size: 16px;
+    display: inline-flex;
+    margin-top: 0px;
+}
+
+.svg {
+    height: 20px;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    justify-items:left;
+    align-items: center;
+    
+}

@@ -6,7 +6,7 @@ const taskTemplate = document.getElementById('tasks-template');
 const modal = document.getElementById('modal');
 const addTaskButton = document.getElementById('add-task-button')
 const addTaskButtonModal = document.getElementById('add-task-button-modal')
-const projectsButton = document.getElementById('project-button')
+const projectslist = document.getElementById('project-list')
 
 
 function init() {
@@ -19,7 +19,7 @@ function init() {
 };
 
 export function render() {
-    clearElement();
+    clearElement(containerTasks);
     projectPrint();
     tasks.forEach(task => {
         const taskContainer = document.importNode(taskTemplate.content, true);
@@ -50,18 +50,26 @@ function openModal() {
     modal.classList.add('activate');
 }
 
-function clearElement() {
-    while (containerTasks.hasChildNodes()) {
-        containerTasks.removeChild(containerTasks.firstChild)
+function clearElement(element) {
+    while (element.hasChildNodes()) {
+        element.removeChild(element.firstChild)
     }
 }
 
 function projectPrint() {
+    clearElement(projectslist);
     let projects = projectList();
     projects.forEach((project) => {
-        const projectDiv = document.createElement('div');
-        projectDiv.textContent = project;
-        projectsButton.appendChild(projectDiv);
+        const projectButtons = document.createElement('button');
+        const arrow = document.createElement('img');
+        arrow.src = "svg/right.svg";
+        arrow.classList = 'svg';
+        projectButtons.appendChild(arrow);
+        projectButtons.src = "./svg/right.svg"
+        projectButtons.classList = 'btn project';
+        projectButtons.textContent = project;
+        projectslist.appendChild(arrow);
+        projectslist.appendChild(projectButtons);
     })
 }
 
