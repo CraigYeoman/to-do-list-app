@@ -1,4 +1,4 @@
-import { tasks, deleteTask, addTask, projectList } from './logic';
+import { tasks, deleteTask, addTask, projectList, projectSelector } from './logic';
 
 
 const containerTasks = document.getElementById('content');
@@ -17,6 +17,9 @@ function init() {
     })
     render();
 };
+
+
+
 
 export function render() {
     clearElement(containerTasks);
@@ -68,6 +71,10 @@ function projectPrint() {
         projectButtons.src = "./svg/right.svg"
         projectButtons.classList = 'btn project';
         projectButtons.textContent = project;
+        projectButtons.id = project;
+        projectButtons.addEventListener('click', function () {
+            projectSelector(e);
+            }, false);
         projectslist.appendChild(arrow);
         projectslist.appendChild(projectButtons);
     })

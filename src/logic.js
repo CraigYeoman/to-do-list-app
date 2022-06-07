@@ -40,13 +40,25 @@ function projectList() {
           ;  
         } else projects.push(tasks[i].project)
     }
-    console.log(projects);
     return projects;
+}
+
+function projectSelector(e) {
+    let newArray = []
+    for (let i = tasks.length-1; i >= 0; i--) {
+        let newArray2 = Object.values(tasks[i]);
+        if (newArray2.includes(e.target.id)) {
+          newArray.push(tasks[i]);  
+    }
+    console.log(newArray);
+    return newArray;
+}
 }
 
 export {
     addTask,
     deleteTask,
     tasks,
-    projectList
+    projectList,
+    projectSelector
 }
