@@ -1,4 +1,4 @@
-import { tasks, deleteTask, addTask, projectList, projectSelector } from './logic';
+import { tasks, deleteTask, addTask, projectList, projectSelector, currentTaskSelection } from './logic';
 
 
 const containerTasks = document.getElementById('content');
@@ -9,22 +9,23 @@ const addTaskButtonModal = document.getElementById('add-task-button-modal')
 const projectslist = document.getElementById('project-list')
 
 
+
 function init() {
     addTaskButtonModal.addEventListener('click', openModal)
     addTaskButton.addEventListener('click', () => {
     addTask();
-    render();
+    render(currentTaskSelection);
     })
-    render();
+    render(tasks);
 };
 
 
 
 
-export function render() {
+function render(selection) {
     clearElement(containerTasks);
     projectPrint();
-    tasks.forEach(task => {
+    selection.forEach(task => {
         const taskContainer = document.importNode(taskTemplate.content, true);
         const taskTitle = taskContainer.querySelector('[task-title]');
         taskTitle.textContent = task.title;
@@ -36,7 +37,7 @@ export function render() {
         taskDueDate.textContent = task.dueDate;
         const checkBox = taskContainer.querySelector('[check-box]');
         checkBox.value = task.completion;
-        task.id = tasks.findIndex(i => i.title === task.title);
+        task.id = selection.findIndex(i => i.title === task.title);
         const deleteButton = taskContainer.querySelector('[delete-button]');
         deleteButton.id = task.id;
         deleteButton.addEventListener('click', (event) => {
@@ -72,12 +73,12 @@ function projectPrint() {
         projectButtons.classList = 'btn project';
         projectButtons.textContent = project;
         projectButtons.id = project;
-        projectButtons.addEventListener('click', function () {
+        projectButtons.addEventListener('click', function (e) {
             projectSelector(e);
             }, false);
         projectslist.appendChild(arrow);
         projectslist.appendChild(projectButtons);
-    })
+    })  
 }
 
 export default init;

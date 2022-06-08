@@ -12,6 +12,8 @@ let tasks = [{
     completion: false,
 }];
 
+
+
 const task = (title, project, priority, dueDate, completion, id) => {
     return {title, project, priority, dueDate, completion, id};
 }
@@ -44,21 +46,24 @@ function projectList() {
 }
 
 function projectSelector(e) {
-    let newArray = []
+    let currentTaskSelection = []
     for (let i = tasks.length-1; i >= 0; i--) {
-        let newArray2 = Object.values(tasks[i]);
-        if (newArray2.includes(e.target.id)) {
-          newArray.push(tasks[i]);  
+        let currentObject = Object.values(tasks[i]);
+        if (currentObject.includes(e.target.id)) {
+            currentTaskSelection.push(tasks[i]);  
     }
-    console.log(newArray);
-    return newArray;
+    console.log(currentTaskSelection);
+    return currentTaskSelection;
 }
 }
+
+let currentTaskSelection = tasks;
 
 export {
     addTask,
     deleteTask,
     tasks,
     projectList,
-    projectSelector
+    projectSelector,
+    currentTaskSelection
 }
