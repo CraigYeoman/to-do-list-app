@@ -74,7 +74,8 @@ function projectPrint() {
         projectButtons.textContent = project;
         projectButtons.id = project;
         projectButtons.addEventListener('click', function (e) {
-            projectSelector(e);
+            let currentTaskSelection = projectSelector(e);
+            render(currentTaskSelection);
             }, false);
         projectslist.appendChild(arrow);
         projectslist.appendChild(projectButtons);

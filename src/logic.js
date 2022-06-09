@@ -47,14 +47,15 @@ function projectList() {
 
 function projectSelector(e) {
     let currentTaskSelection = []
-    for (let i = tasks.length-1; i >= 0; i--) {
-        let currentObject = Object.values(tasks[i]);
-        if (currentObject.includes(e.target.id)) {
+    for (let i = 0; i <=tasks.length; i++) {
+        let current = tasks[i];
+        let currentA = Object.values(current)
+        if (currentA.includes(e.target.id)) {
             currentTaskSelection.push(tasks[i]);  
     }
     console.log(currentTaskSelection);
+    }
     return currentTaskSelection;
-}
 }
 
 let currentTaskSelection = tasks;
