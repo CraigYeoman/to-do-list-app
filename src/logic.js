@@ -47,7 +47,7 @@ function projectList() {
 
 function projectSelector(e) {
     let currentTaskSelection = []
-    for (let i = 0; i <=tasks.length; i++) {
+    for (let i = 0; i <= tasks.length-1; i++) {
         let current = tasks[i];
         let currentA = Object.values(current)
         if (currentA.includes(e.target.id)) {
