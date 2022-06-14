@@ -4,10 +4,10 @@ import { tasks, deleteTask, addTask, projectList, projectSelector, currentTaskSe
 const containerTasks = document.getElementById('content');
 const taskTemplate = document.getElementById('tasks-template');
 const modal = document.getElementById('modal');
-const addTaskButton = document.getElementById('add-task-button')
-const addTaskButtonModal = document.getElementById('add-task-button-modal')
-const projectslist = document.getElementById('project-list')
-
+const addTaskButton = document.getElementById('add-task-button');
+const addTaskButtonModal = document.getElementById('add-task-button-modal');
+const projectslist = document.getElementById('project-list');
+const homeButton = document.getElementById('home-button');
 
 
 function init() {
@@ -15,7 +15,10 @@ function init() {
     addTaskButton.addEventListener('click', () => {
     addTask();
     render(currentTaskSelection);
-    })
+    });
+    homeButton.addEventListener('click', () => {
+        render(tasks)
+    });
     render(tasks);
 };
 

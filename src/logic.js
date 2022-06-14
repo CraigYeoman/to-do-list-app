@@ -10,6 +10,18 @@ let tasks = [{
     priority: 'High',
     dueDate: '9/23/22',
     completion: false,
+}, {
+    title: 'Example 3',
+    project: 'Personal',
+    priority: 'Low',
+    dueDate: '5/23/22',
+    completion: false,
+}, {
+    title: 'Example 4',
+    project: 'Work',
+    priority: 'High',
+    dueDate: '7/23/22',
+    completion: false,
 }];
 
 
