@@ -102,10 +102,16 @@ body {
     cursor: pointer;
 }
 
+.btn.active {
+    color: white;
+    font-weight: 680;
+    border: 2px solid #E2E8F0;
+    border-radius: 5px;
+}
+
 .delete {
     border: none;
     background-color: inherit;
-    
 }
 
 .delete:hover {

@@ -65,7 +65,6 @@ function projectSelector(e) {
         if (currentA.includes(e.target.id)) {
             currentTaskSelection.push(tasks[i]);  
     }
-    console.log(currentTaskSelection);
     }
     return currentTaskSelection;
 }
@@ -73,10 +72,10 @@ function projectSelector(e) {
 let currentTaskSelection = tasks;
 
 export {
-    addTask,
-    deleteTask,
-    tasks,
-    projectList,
-    projectSelector,
-    currentTaskSelection
-}
+  addTask,
+  deleteTask,
+  tasks,
+  projectList,
+  projectSelector,
+  currentTaskSelection,
+};
