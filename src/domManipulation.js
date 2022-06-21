@@ -30,8 +30,8 @@ function projectPrint() {
     projectButtons.textContent = project;
     projectButtons.id = project;
     projectButtons.addEventListener('click', (e) => {
-      let currentTaskSelection = projectSelector(e);
-      render(currentTaskSelection);
+      const projectTaskSelection = projectSelector(e);
+      render(projectTaskSelection);
     }, false);
     projectslist.appendChild(arrow);
     projectslist.appendChild(projectButtons);
@@ -41,7 +41,7 @@ function projectPrint() {
 function render(selection) {
   clearElement(containerTasks);
   projectPrint();
-  selection.forEach(task => {
+  selection.forEach((task) => {
     const taskContainer = document.importNode(taskTemplate.content, true);
     const taskTitle = taskContainer.querySelector('[task-title]');
     taskTitle.textContent = task.title;
@@ -53,7 +53,7 @@ function render(selection) {
     taskDueDate.textContent = task.dueDate;
     const checkBox = taskContainer.querySelector('[check-box]');
     checkBox.value = task.completion;
-    task.id = selection.findIndex(i => i.title === task.title);
+    task.id = selection.findIndex((i) => i.title === task.title);
     const deleteButton = taskContainer.querySelector('[delete-button]');
     deleteButton.id = task.id;
     deleteButton.addEventListener('click', (event) => {

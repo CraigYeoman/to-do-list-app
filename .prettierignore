@@ -1,0 +1,7 @@
+# Ignore artifacts:
+*.html
+*.svg
+*.json
+*.css
+node_modules/
+dist/
